@@ -6,8 +6,7 @@
  */
 
 require('./bootstrap');
-
-window.Vue = require('vue');
+const Vue2Leaflet = require('vue2-leaflet');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,7 +15,12 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('main-map', require('./components/Map.vue'));
+
+Vue.component('v-map', Vue2Leaflet.Map);
+Vue.component('v-tilelayer', Vue2Leaflet.TileLayer);
+Vue.component('v-marker', Vue2Leaflet.Marker);
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });
